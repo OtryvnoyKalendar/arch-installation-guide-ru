@@ -1,5 +1,5 @@
-Based on material from the UNIXoid's Diary channel:
-https://t.me/thmUNIX
+Based on material from the UNIXoid's Diary channel:  
+https://t.me/thmUNIX  
 https://youtube.com/@thmUNIX
 
 Tutorial version: 1.1
@@ -22,13 +22,13 @@ quit
 If any problem occurs, try running the command `rfkill unblock all` and try connecting to Wi-Fi again
 
 ## Step 2 - Configuring the package manager
-- nano /etc/pacman.d/mirrorlist
+- nano /etc/pacman.d/mirrorlist  
 Check that Reflector has generated a list of mirrors. If not, comment out all the mirrors and uncomment the ones we want to use.
 - If there is no mirror list, you can generate it:
 ```sh
 sudo reflector --country "Russia" --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 ```
-- nano /etc/pacman.conf
+- nano /etc/pacman.conf  
 Uncomment the `ParallelDownloads` parameter and set the desired value (for example, 15)
 
 ## Step 3 - Disk partitioning
@@ -49,6 +49,7 @@ cfdisk disk
 | --- | ---------------- | ------------------- | ------------------ |
 | 1 | EFI system | 256M | /boot/efi |
 | 2 | Linux filesystem | All free space | / |
+
 or
 
 | # | Type | Size | Mount point |
@@ -170,13 +171,13 @@ username ALL=(ALL:ALL) ALL
 ```
 
 ## Step 11 - Locales & system language
-- nano /etc/locale.gen
+- nano /etc/locale.gen  
 Uncomment the locales you need. For example:
 ```
 en_US.UTF-8 UTF-8
 ru_RU.UTF-8 UTF-8
 ```
-- nano /etc/locale.conf
+- nano /etc/locale.conf  
 Enter the line:
 ```
 LANG= ”locale”
@@ -192,7 +193,7 @@ locale-gen
 ```sh
 grub-install /dev/disk # /dev/nvme0n1
 ```
-- **nano /etc/default/grub**
+- **nano /etc/default/grub**  
 Remove the `quiet` parameter from the `GRUB_CMDLINE_LINUX_DEFAULT` parameter - this is optional
 - Save the bootloader config
 ```sh
@@ -241,7 +242,7 @@ For example, 6G. It is recommended to create two times smaller than the size of 
 sudo mkswap -U clear --size size --file /swapfile
 sudo swapon /swapfile
 ```
-- **nano /etc/fstab**
+- **nano /etc/fstab**  
 Add to the end (separate columns with Tab):
 ```
 /swapfile none swap defaults 0 0
