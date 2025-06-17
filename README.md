@@ -1,5 +1,5 @@
-Основано на материале с канала Дневник UNIX’оида:
-https://t.me/thmUNIX
+Основано на материале с канала Дневник UNIX’оида:  
+https://t.me/thmUNIX  
 https://youtube.com/@thmUNIX
 
 Версия туториала: 1.1
@@ -49,6 +49,7 @@ cfdisk диск
 | --- | ---------------- | ------------------- | ------------------ |
 | 1   | EFI system       | 256M                | /boot/efi          |
 | 2   | Linux filesystem | Все свободное место | /                  |
+
 или
 
 | #   | Тип              | Размер              | Точка монтирования |
@@ -170,13 +171,13 @@ root ALL=(ALL:ALL) ALL
 ```
 
 ## Шаг 11 - Локали & язык системы
-- nano /etc/locale.gen
+- nano /etc/locale.gen  
 Раскомментируем нужные вам локали. Например:
 ```
 en_US.UTF-8 UTF-8
 ru_RU.UTF-8 UTF-8
 ```
-- nano /etc/locale.conf
+- nano /etc/locale.conf  
 Вписываем строку:
 ```
 LANG= ”локаль”
@@ -192,7 +193,7 @@ locale-gen
 ```sh
 grub-install /dev/диск # /dev/nvme0n1
 ```
-- **nano /etc/default/grub**
+- **nano /etc/default/grub**  
 Из параметра `GRUB_CMDLINE_LINUX_DEFAULT` убираем параметр `quiet` - это не обязательно 
 - Сохраняем конфиг загрузчика
 ```sh
@@ -241,7 +242,7 @@ sudo timedatectl set-ntp true
 sudo mkswap -U clear --size размер --file /swapfile
 sudo swapon /swapfile
 ```
-- **nano /etc/fstab**
+- **nano /etc/fstab**  
 Дописываем в конец (колонки отделяем Tab’ом):
 ```
 /swapfile none swap defaults 0 0
